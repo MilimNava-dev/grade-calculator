@@ -24,7 +24,7 @@ export default function SubjectScore({ categories, setCategories, subject, grade
   );
 
   return (
-    <div className="flex justify-between w-full py-16 flex-column items-center">
+    <div className="flex flex-col md:flex-row md:justify-between w-full py-16 items-center gap-8">
       <div className="flex w-fit gap-8 items-center">
         <div className="bg-black w-40 h-40 rounded-full flex justify-center items-center text-5xl">
           <span className="text-white">

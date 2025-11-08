@@ -18,10 +18,12 @@ export default function SubjectDetails({ grades, setGrades, categories, setCateg
   const currentGrades = grades.filter((grad) => grad.subject === subjectId);
 
   return (
-    <main className="max-w-[70rem] w-full m-auto p-8 relative">
+    <main className="max-w-[70rem] w-full m-auto p-4 sm:p-8 relative">
+      <div className="mb-4">
+        <Button className="rounded-full" onClick={() => navigate("/")}><ArrowLeft /></Button>
+      </div>
       <SubjectScore categories={currentCategories} setCategories={setCategories} subject={subject} grades={grades} />
       <SubjectTable grades={currentGrades} setGrades={setGrades} categories={currentCategories} setCategories={setCategories} subject={subjectId} />
-      <Button className="rounded-full absolute top-8 left-8" onClick={() => navigate("/")}><ArrowLeft /></Button>
     </main>
   );
 }

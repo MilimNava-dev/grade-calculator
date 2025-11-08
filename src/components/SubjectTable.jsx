@@ -210,7 +210,7 @@ export default function SubjectTable({ grades: data, setGrades, categories, subj
 
   return (
     <>
-      <div className="flex justify-between mb-4">
+      <div className="flex flex-col sm:flex-row sm:justify-between mb-4 gap-4">
         <Input
           type="text"
           placeholder="Filter by name..."
@@ -285,7 +285,7 @@ export default function SubjectTable({ grades: data, setGrades, categories, subj
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className={header.column.columnDef.meta?.className}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -305,7 +305,7 @@ export default function SubjectTable({ grades: data, setGrades, categories, subj
                   data-state={row.getIsSelected() && "selected"}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className={cell.column.columnDef.meta?.className}>
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext(),

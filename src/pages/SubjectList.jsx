@@ -33,7 +33,7 @@ export default function SubjectList({ categories, setCategories, deleteSubject }
   };
 
   return (
-    <main className="max-w-[70rem] w-full m-auto py-12 px-20">
+    <main className="max-w-[70rem] w-full m-auto py-12 px-6 sm:px-8 md:px-20">
       <div className="flex justify-between mb-10">
         <h1 className="text-3xl font-bold">Subjects</h1>
         <Button onClick={() => setIsCreateDialogOpen(true)}><PlusIcon /></Button>

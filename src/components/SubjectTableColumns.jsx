@@ -87,6 +87,9 @@ export function getColumns({ categoriesName, handleSortingToggle, onEdit, onDele
         </Button>
       ),
       cell: ({ row }) => <span>{row.getValue("date")}</span>,
+      meta: {
+        className: "hidden md:table-cell",
+      },
     },
     {
       accessorKey: "term",
@@ -117,6 +120,9 @@ export function getColumns({ categoriesName, handleSortingToggle, onEdit, onDele
             {term}
           </span>
         );
+      },
+      meta: {
+        className: "hidden md:table-cell",
       },
     },
     {
