@@ -7,6 +7,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { SquarePen } from "lucide-react";
 import { Trash2 } from 'lucide-react';
 
 export default function PopoverDemo({ values, setValues, setCategories, onCategoriesUpdate, subject }) {
@@ -52,7 +53,8 @@ export default function PopoverDemo({ values, setValues, setCategories, onCatego
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
-        <Button variant="ghost" className="p-1">
+        <Button variant="ghost" className="has-[>svg]:px-1 has-[>svg]:py-1">
+          <SquarePen className="text-gray-700"/>
           Weight
         </Button>
       </PopoverTrigger>
