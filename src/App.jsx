@@ -1,4 +1,6 @@
+import { Routes, Route } from "react-router-dom";
 import SubjectDetails from "./pages/SubjectDetails";
+import SubjectList from "./pages/SubjectList";
 import { useState, useEffect } from "react";
 
 function App() {
@@ -13,7 +15,8 @@ function App() {
       ? JSON.parse(saved)
       : [
         {
-          id: "spanish",
+          id: "1",
+          name: "Spanish",
           tags: [
             { id: "1", name: "Exam", weight: 60 },
             { id: "2", name: "Presentation", weight: 20 },
@@ -31,15 +34,24 @@ function App() {
     localStorage.setItem("categories", JSON.stringify(categories));
   }, [categories]);
 
+  const deleteSubject = (subjectId) => {
+    setCategories(categories.filter((category) => category.id !== subjectId));
+    setGrades(grades.filter((grade) => grade.subject !== subjectId));
+  };
+
   return (
-    <>
-      <SubjectDetails
-        grades={grades}
-        setGrades={setGrades}
-        categories={categories}
-        setCategories={setCategories}
+    <Routes>
+      <Route path="/" element={<SubjectList categories={categories} setCategories={setCategories} deleteSubject={deleteSubject} />} />
+      <Route
+        path="/subject/:subjectId"
+        element={<SubjectDetails
+          grades={grades}
+          setGrades={setGrades}
+          categories={categories}
+          setCategories={setCategories}
+        />}
       />
-    </>
+    </Routes>
   );
 }
 

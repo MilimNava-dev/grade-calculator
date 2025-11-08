@@ -28,7 +28,7 @@ import { getColumns } from "./SubjectTableColumns";
 import SubjectTableDialog from "./SubjectTableDialog";
 import { arrIncludes } from "../utils/subject-table-utils";
 
-export default function SubjectTable({ grades: data, setGrades, categories }) {
+export default function SubjectTable({ grades: data, setGrades, categories, subject }) {
   const [sorting, setSorting] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
   const [pageSize, setPageSize] = useState(5);
@@ -102,8 +102,8 @@ export default function SubjectTable({ grades: data, setGrades, categories }) {
     setGrades((prev) => [
       ...prev,
       {
-        id: Date.now().toString(),
-        subject: "spanish",
+        id: crypto.randomUUID(),
+        subject: subject,
         name: newEntry.name,
         type: newEntry.type,
         date: formatDateLocal(newEntry.date),

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/popover"
 import { Trash2 } from 'lucide-react';
 
-export default function PopoverDemo({ values, setValues, setCategories, onCategoriesUpdate }) {
+export default function PopoverDemo({ values, setValues, setCategories, onCategoriesUpdate, subject }) {
   const [open, setOpen] = useState(false)
   const [draftValues, setDraftValues] = useState(values)
 
@@ -24,10 +24,10 @@ export default function PopoverDemo({ values, setValues, setCategories, onCatego
   const handleSave = () => {
     setValues(draftValues)
     setCategories((prev) =>
-      prev.map((subject) =>
-        subject.id === "spanish"
-          ? { ...subject, tags: [...draftValues] }
-          : subject
+      prev.map((s) =>
+        s.id === subject.id
+          ? { ...s, tags: [...draftValues] }
+          : s
       )
     )
     if (onCategoriesUpdate) {
@@ -40,7 +40,7 @@ export default function PopoverDemo({ values, setValues, setCategories, onCatego
   const handleAddCategory = () => {
     setDraftValues(prev => [
       ...prev,
-      { id: Date.now().toString(), name: "", weight: "0" }
+      { id: crypto.randomUUID(), name: "", weight: "0" }
     ])
   }
 

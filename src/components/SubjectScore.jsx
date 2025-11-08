@@ -64,16 +64,16 @@ export default function SubjectScore({ categories, setCategories, subject, grade
           <TabsTrigger value="final">Final</TabsTrigger>
         </TabsList>
         <TabsContent value="term-1">
-          <CategoryMark categories={categories} setCategories={setCategories} catAveragesByTerm={catAveragesByTerm} term={1} />
+          <CategoryMark categories={categories} setCategories={setCategories} catAveragesByTerm={catAveragesByTerm} term={1} subject={subject} />
         </TabsContent>
         <TabsContent value="term-2">
-          <CategoryMark categories={categories} setCategories={setCategories} catAveragesByTerm={catAveragesByTerm}term={2}/>
+          <CategoryMark categories={categories} setCategories={setCategories} catAveragesByTerm={catAveragesByTerm}term={2} subject={subject} />
         </TabsContent>
         <TabsContent value="term-3">
-          <CategoryMark categories={categories} setCategories={setCategories} catAveragesByTerm={catAveragesByTerm}term={3}/>
+          <CategoryMark categories={categories} setCategories={setCategories} catAveragesByTerm={catAveragesByTerm}term={3} subject={subject} />
         </TabsContent>
         <TabsContent value="final">
-          <CategoryMark categories={categories} setCategories={setCategories} catAverages={catAverages}/>
+          <CategoryMark categories={categories} setCategories={setCategories} catAverages={catAverages} subject={subject} />
         </TabsContent>
       </Tabs>
     </div>

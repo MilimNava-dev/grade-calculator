@@ -16,6 +16,7 @@ export default function CategoryMark({
   catAveragesByTerm,
   term,
   catAverages,
+  subject,
 }) {
   const [values, setValues] = useState(categories);
   console.log(catAveragesByTerm);
@@ -41,7 +42,7 @@ export default function CategoryMark({
           <TableRow>
             <TableHead className="w-[100px]">Category</TableHead>
             <TableHead>
-              <WeightPopover values={values} setValues={setValues} setCategories={setCategories}/>
+              <WeightPopover values={values} setValues={setValues} setCategories={setCategories} subject={subject}/>
             </TableHead>
             <TableHead>Mark</TableHead>
             <TableHead className="text-right">Result</TableHead>
